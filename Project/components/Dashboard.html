@@ -1,0 +1,8 @@
+<div ng-cloak>
+  <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" style="border: solid 1px gray">
+      <!-- <text ng-repeat="bar in $ctrl.specs track by $index">{{bar.width}}</text> -->
+      <rect ng-repeat="bar in $ctrl.specs" x="0" y="{{($ctrl.height + 5) * $index}}" fill="{{bar.color}}" width="{{bar.width.toString()}}" height="{{$ctrl.height}}"/>
+    </svg>
+  </span>
+</div>
