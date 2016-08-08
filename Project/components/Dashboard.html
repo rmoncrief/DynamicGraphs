@@ -1,8 +1,13 @@
 <div ng-cloak>
   <span>
-    <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" style="border: solid 1px gray">
-      <!-- <text ng-repeat="bar in $ctrl.specs track by $index">{{bar.width}}</text> -->
-      <rect ng-repeat="bar in $ctrl.specs" x="0" y="{{($ctrl.height + 5) * $index}}" fill="{{bar.color}}" width="{{bar.width.toString()}}" height="{{$ctrl.height}}"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" >
+
+      <rect ng-repeat="bar in $ctrl.specs track by $index"
+        x="0" ng-attr-y="{{($ctrl.height + 5) * $index}}" fill="{{bar.color}}"
+        ng-attr-width="{{bar.width.toString()}}" ng-attr-height="{{$ctrl.height}}"/>
+
+      <line x1="0" y1="0" x2="0" y2="105" style="stroke: black; stroke-width:2px"/>
+      <line x1="0" y1="105" x2="70" y2="105" style="stroke: black; stroke-width:2px"/>
     </svg>
   </span>
 </div>

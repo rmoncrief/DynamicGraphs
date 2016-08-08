@@ -2,7 +2,7 @@
   'use strict';
   var module = angular.module("Dashboard", []);
 
-  function barGraphController() {
+  function barGraphController($scope, $window) {
     var $ctrl = this;
 
   //  $ctrl.color = "#A62E5C";
@@ -14,12 +14,17 @@
         {color: '#F15B2A', width: 60},
         {color: '#A62E5C', width: 70}
       ];
+      
+    $scope.$watch('specs', function() {
+      $window.alert("stuff was changed")
+    }, true)
+
 
 
   };
 
   module.component("dashboard", {
     templateUrl: "components/Dashboard.html",
-    controller: [barGraphController]
+    controller: ["$scope","$window",barGraphController]
   });
 }());
