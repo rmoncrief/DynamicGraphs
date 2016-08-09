@@ -1,3 +1,26 @@
 <div ng-cloak>
+  <!-- <div>
+    {{$ctrl.specs.slices}}
+  </div> -->
+  <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" >
 
+      <path ng-repeat="slice in $ctrl.specs.slices"
+            stroke="{{slice.color}}" fill="{{slice.color}}" stroke-width="0"
+            ng-attr-d="M 300,300 l {{slice.x1}},{{slice.y1 * -1}} a200,200 0 0 0 {{slice.x2 - slice.x1}},{{(slice.y2 - slice.y1) * -1}}"/>
+      <line ng-repeat="slice in $ctrl.specs.slices" stroke="black" stroke-width="2"
+            ng-attr-x1="{{300 + slice.ticMark.x - 10}}" ng-attr-y1="{{300 + (slice.ticMark.y * -1)}}"
+            ng-attr-x2="{{300 + slice.ticMark.x + 10}}" ng-attr-y2="{{300 + (slice.ticMark.y * -1)}}"
+            ng-attr-transform="rotate({{slice.ticMark.rotation * -1}}, {{300 + slice.ticMark.x}}, {{300 + (slice.ticMark.y * -1)}})"/>
+      <text ng-repeat="slice in $ctrl.specs.slices"
+            ng-attr-x="{{300 + slice.label.x}}"
+            ng-attr-y="{{300 + slice.label.y * -1}}"
+            style="font-family: arial; font-size:16pt"
+            text-anchor="{{slice.label.allignment}}">
+              {{slice.label.text}}
+
+      </text>
+
+    </svg>
+  </span>
 </div>
