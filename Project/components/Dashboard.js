@@ -15,7 +15,7 @@
       bars: [
         {color: '#2A9FBC', width: 50, text:"September"},
         {color: '#F15B2A', width: 60, text:"October"},
-        {color: '#A62E5C', width: 90, text:"November"}
+        {color: '#A62E5C', width: 160, text:"November"}
       ]};
 
     $scope.$watch('$ctrl.specs', function() {

@@ -1,0 +1,32 @@
+<div ng-cloak>
+  <div>
+    Value: <input type="text" ng-model="$ctrl.percentage">
+</div>
+
+  <span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" >
+      <path id="background"
+            ng-attr-d="{{$ctrl.background}}"
+            stroke-width="10" stroke="black" fill="none"/>
+      <path ng-attr-d="{{$ctrl.value}}"
+            stroke-width="10" stroke="#9BC850" fill="none"/>
+      <path id="thin"
+            ng-attr-d="{{$ctrl.thin}}"
+            stroke-width="0" fill="none"/>
+
+      <text ng-repeat="gradient in $ctrl.specs.gradients"
+            dx="0" dy="0" text-anchor="middle"
+            style="font: bold large arial">
+        <textPath xlink:href="#thin" startOffset="{{gradient.offsets}}%">
+          {{gradient.value}}
+        </textPath>
+      </text>
+
+      <text x="{{$ctrl.maxValueCoordinates.x}}" y="{{$ctrl.maxValueCoordinates.y}}"
+              text-anchor="middle" style="font: bold large arial"
+              transform="rotate(90,{{$ctrl.maxValueCoordinates.x}},{{$ctrl.maxValueCoordinates.y}})">
+                  {{$ctrl.specs.maxValue}}
+      </text>
+    </svg>
+  </span>
+</div>
